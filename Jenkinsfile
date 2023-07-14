@@ -3,7 +3,8 @@ def remote = "origin"
 def directory = "~/wayshub-backend"
 def server = "fama@103.191.92.211"
 def cred = "wayshub1"
-def image = "nobody1305/fama-backend:latest"
+def image1 = "nobody1305/fama-backend:latest"
+def image2 = "nobody1305/fama-database:latest"
 
 pipeline{
     agent any
@@ -61,8 +62,10 @@ pipeline{
                 sshagent([cred]){
                     sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
                     cd ${directory}
-		    docker tag fama-backend:latest ${image}
-                    docker push ${image}
+		    docker tag fama-backend:latest ${image1}
+		    docker tag fama-database:latest ${image2}
+                    docker push ${image1}
+		    docker push ${image2}
                     exit
                     EOF"""
                     }
