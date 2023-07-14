@@ -1,4 +1,4 @@
-def branch = "main"
+def branch = "main" 
 def remote = "origin"
 def directory = "~/wayshub-backend"
 def server = "fama@103.191.92.211"
