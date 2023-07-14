@@ -21,6 +21,17 @@ pipeline{
                 }
             }
 
+	  stage('docker compose mysql'){
+            steps{
+                sshagent([cred]){
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    docker compose -f compose-mysql.yml up -d
+                    exit
+                    EOF"""
+                    }
+                }
+            }
+
 	 stage('docker build'){
             steps{
                 sshagent([cred]){
