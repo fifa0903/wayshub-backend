@@ -63,7 +63,7 @@ pipeline{
                     sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
                     cd ${directory}
 		    docker tag fama-backend:latest ${image1}
-		    docker tag fama-database:latest ${image2}
+		    docker tag mysql:latest ${image2}
                     docker push ${image1}
 		    docker push ${image2}
                     exit
