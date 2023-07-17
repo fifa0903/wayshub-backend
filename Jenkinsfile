@@ -6,7 +6,6 @@ def cred = "wayshub1"
 def image1 = "nobody1305/fama-backend:latest"
 def image2 = "nobody1305/fama-database:latest"
 
-
 pipeline{
     agent any
     stages{
